@@ -83,7 +83,7 @@ namespace StarChart.Controllers
             celestialObject.OrbitalPeriod = toUpdate.OrbitalPeriod;
             celestialObject.OrbitedObjectId = toUpdate.OrbitedObjectId;
 
-            _context.Update(celestialObject);
+            _context.CelestialObjects.Update(celestialObject);
             _context.SaveChanges();
 
             return NoContent();
@@ -98,7 +98,7 @@ namespace StarChart.Controllers
 
             celestialObject.Name = name;
 
-            _context.Update(celestialObject);
+            _context.CelestialObjects.Update(celestialObject);
             _context.SaveChanges();
 
             return NoContent();
@@ -111,7 +111,7 @@ namespace StarChart.Controllers
 
             if (celestialObjects.Any()) return NotFound();
 
-            _context.RemoveRange(celestialObjects);
+            _context.CelestialObjects.RemoveRange(celestialObjects);
             _context.SaveChanges();
 
             return NoContent();
